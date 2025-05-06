@@ -26,8 +26,10 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch(); 
 
   const addUsers = () => {
-    dispatch(setUsers(product)); 
+    dispatch(setUsers(product));
+    alert(`${product.title} has been added to your cart!`);
   };
+
 
   return (
     <div className="product-card">
