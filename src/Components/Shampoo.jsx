@@ -35,6 +35,7 @@ const ProductCard = ({ product }) => {
 
   const addUsers = () => {
     dispatch(setUsers(product));
+    alert(`${product.title} has been added to your cart!`)
   };
 
   return (
