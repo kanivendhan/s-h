@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteUser } from "./Counter";
 import Footer from "./Footer";
 
+
 const Cart = () => {
   const cart = useSelector((state) => state.usersInfo.users);
   const dispatch = useDispatch();
@@ -56,7 +57,13 @@ const Cart = () => {
               {/* Buy Now & Remove Buttons */}
               <div className="cart-buttons">
                 <button className="buy-button">Buy Now</button>
-                <button className="remove-button" onClick={() => dispatch(deleteUser(index))}>
+                <button className="remove-button" onClick={() => {
+                  const confirmDelete = window.confirm(`Are you sure you want to remove ${user.title} from the cart?`);
+                  if (confirmDelete) {
+                    dispatch(deleteUser(index));
+                    alert(`${user.title} has been removed from the cart.`);
+                  }
+                }}>
                   Remove
                 </button>
               </div>
